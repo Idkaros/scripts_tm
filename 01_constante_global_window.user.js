@@ -1,16 +1,13 @@
 // ==UserScript==
-// @name         Asignar variable persistente para tiendas
+// @name         01 asignar variable persistente por window para tiendas
 // @namespace    http://tampermonkey.net/
 // @version      0.1
 // @description  Asigna la variable persistente 'tiendas' para ser usada en otros scripts
 // @author       You
 // @match        *://*.contimarket.com/*
-// @grant        GM_setValue
-// @grant        GM_getValue
 // ==/UserScript==
 
-// Asignamos la variable 'tiendas' y la guardamos usando GM_setValue
-const tiendas = {
+window.tiendas = {
     interior: [
         {nombre: "4R EXPRESS", direccion: "Coronel Bogado"},
         {nombre: "A TU ESTILO BOUTIQUE", direccion: "Carapegua"},
@@ -103,8 +100,6 @@ const tiendas = {
     ]
 };
 
-// Guardar la variable 'tiendas' en el almacenamiento persistente de Tampermonkey
-GM_setValue('tiendas', JSON.stringify(tiendas));
-
-// const tiendasRecuperadas = JSON.parse(GM_getValue('tiendas'));
-// console.log(tiendasRecuperadas);
+// console.log('1º script');
+// console.log('Asignando la variable tiendas');
+// console.log(window.tiendas);
